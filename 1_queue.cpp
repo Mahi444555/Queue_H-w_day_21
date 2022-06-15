@@ -28,7 +28,7 @@ void enqueue()
           q.rear++;       //we add elemnts from rear so firstly increas rear only add and front will same
         }
         cout<<endl<<"enter the elemnt at : "<<q.rear<<" index"<<endl;
-        cin>>x;
+        cin>>x;     //cin>>q.queue[q.rear]; directly 
         q.queue[q.rear]=x;  //i.e. arr[1]=x i.e. any value
     }
 }
@@ -39,10 +39,17 @@ void dequeue()  //we always deleting from front so check in queue is empty or no
     {
         cout<<endl<<"your queue is empty now you can't delete elements "<<endl;
     }
+    
     else{
         cout<<endl<<"dequeued element at : "<<q.front<<" is "<<q.queue[q.front]<<endl;
+        if(q.front==q.rear)   //when we deleted all elements from queue then set to empty i.e. -1
+        {                       //i.e. q.front will at rear i.e. last elemnt then reset to -1 again to add new elemnts again
+            q.front=-1;
+            q.rear=-1;
+        }
+        cout<<endl<<"dequeued element at : "<<q.front<<" is "<<q.queue[q.front]<<endl;
         q.front++;  //directly increase index of fornt ie. 0 to 1 to 2 we dequeue previous item index
-        //q.front=0;  //which index elemnt is deleted assing them with 0
+        
 
     }
 }
